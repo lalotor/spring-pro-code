@@ -45,8 +45,10 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 	}
 
 	public Restaurant findByMerchantNumber(String merchantNumber) {
-		String sql = "select MERCHANT_NUMBER, NAME, BENEFIT_PERCENTAGE, BENEFIT_AVAILABILITY_POLICY"
-				+ " from T_RESTAURANT where MERCHANT_NUMBER = ?";
+		String sql = """
+				select MERCHANT_NUMBER, NAME, BENEFIT_PERCENTAGE, BENEFIT_AVAILABILITY_POLICY\
+				 from T_RESTAURANT where MERCHANT_NUMBER = ?\
+				""";
 		Restaurant restaurant = null;
 
 		try (Connection conn = dataSource.getConnection();

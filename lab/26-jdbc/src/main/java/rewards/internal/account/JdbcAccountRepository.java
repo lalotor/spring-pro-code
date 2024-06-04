@@ -40,12 +40,14 @@ public class JdbcAccountRepository implements AccountRepository {
 	//   mapAccount() method, which is provided in this class, to do all the work.
     // - Run the JdbcAccountRepositoryTests class. It should pass.
 	public Account findByCreditCard(String creditCardNumber) {
-		String sql = "select a.ID as ID, a.NUMBER as ACCOUNT_NUMBER, a.NAME as ACCOUNT_NAME, c.NUMBER as CREDIT_CARD_NUMBER, " +
-			"	b.NAME as BENEFICIARY_NAME, b.ALLOCATION_PERCENTAGE as BENEFICIARY_ALLOCATION_PERCENTAGE, b.SAVINGS as BENEFICIARY_SAVINGS " +
-			"from T_ACCOUNT a, T_ACCOUNT_CREDIT_CARD c " +
-			"left outer join T_ACCOUNT_BENEFICIARY b " +
-			"on a.ID = b.ACCOUNT_ID " +
-			"where c.ACCOUNT_ID = a.ID and c.NUMBER = ?";
+		String sql = """
+			select a.ID as ID, a.NUMBER as ACCOUNT_NUMBER, a.NAME as ACCOUNT_NAME, c.NUMBER as CREDIT_CARD_NUMBER, \
+				b.NAME as BENEFICIARY_NAME, b.ALLOCATION_PERCENTAGE as BENEFICIARY_ALLOCATION_PERCENTAGE, b.SAVINGS as BENEFICIARY_SAVINGS \
+			from T_ACCOUNT a, T_ACCOUNT_CREDIT_CARD c \
+			left outer join T_ACCOUNT_BENEFICIARY b \
+			on a.ID = b.ACCOUNT_ID \
+			where c.ACCOUNT_ID = a.ID and c.NUMBER = ?\
+			""";
 		
 		Account account = null;
 		Connection conn = null;

@@ -4,11 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
@@ -20,8 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * all tests that follow. JUnit makes no guarantee about the order that tests
  * run in, so we force tests to run in method name order.
  */
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = { SystemTestConfig.class })
+@SpringJUnitConfig(classes = {SystemTestConfig.class})
 @Transactional
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class RewardNetworkSideEffectTests {

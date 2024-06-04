@@ -39,7 +39,7 @@
      </dependencies>
 
      <build>
-          <plugins>
+        <plugins>
             <plugin>
                 <!-- Skip these tests.  They won't pass until the student completes the lab. -->
                 <groupId>org.apache.maven.plugins</groupId>
@@ -49,6 +49,13 @@
                         <exclude>**/RewardNetworkTests.java</exclude>
                     </excludes>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.platform</groupId>
+                        <artifactId>junit-platform-surefire-provider</artifactId>
+                        <version>1.1.0</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
      </build>

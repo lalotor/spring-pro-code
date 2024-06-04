@@ -64,8 +64,8 @@ public class DbConfig {
 
 		// Tell the underlying implementation what type of database we are using - a
 		// hint to generate better SQL
-		if (adapter instanceof AbstractJpaVendorAdapter) {
-			((AbstractJpaVendorAdapter) adapter).setDatabase(Database.HSQL);
+		if (adapter instanceof AbstractJpaVendorAdapter vendorAdapter) {
+			vendorAdapter.setDatabase(Database.HSQL);
 		}
 
 		// Setup configuration properties

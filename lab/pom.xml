@@ -11,19 +11,15 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.5</version>
+        <version>3.0.13</version>
     </parent>
     <properties>
         <!-- Versions of other dependencies not in spring IO. -->
-        <easymock.version>4.3</easymock.version>
+        <easymock.version>5.2.0</easymock.version>
         <hibernate.jmx.version>3.5.6-Final</hibernate.jmx.version>
         <jamon.version>2.82</jamon.version>
-        <spring-security.version>5.8.0</spring-security.version>
 
-        <java.version>11</java.version>
-
-        <!-- Enable maven support for Servlet 3 - no web.xml -->
-        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <java.version>17</java.version>
 
         <!-- Add JAXB that is dropped in JDK 9 -->
         <jaxb-api.version>2.3.0</jaxb-api.version>
@@ -115,8 +111,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
             <plugin>
@@ -160,6 +155,25 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <!-- OpenRewrite Recipies -->
+            <plugin>
+                <groupId>org.openrewrite.maven</groupId>
+                <artifactId>rewrite-maven-plugin</artifactId>
+                <version>5.32.0</version>
+                <configuration>
+
+                    <activeRecipes>
+                        <recipe>org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0</recipe>
+                    </activeRecipes>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.openrewrite.recipe</groupId>
+                        <artifactId>rewrite-spring</artifactId>
+                        <version>5.11.0</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

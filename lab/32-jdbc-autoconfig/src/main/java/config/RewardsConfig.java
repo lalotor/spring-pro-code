@@ -2,7 +2,6 @@ package config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import rewards.RewardNetwork;
@@ -23,7 +22,6 @@ public class RewardsConfig {
 
 	DataSource dataSource;
 
-	@Autowired  // This @Autowired annotation is optional here
 	public RewardsConfig(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}

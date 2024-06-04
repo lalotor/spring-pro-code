@@ -81,7 +81,7 @@ public class AccountClientTests {
     public void createAccount_using_admin_should_return_201() {
         String url = "/accounts";
         // use a unique number to avoid conflicts
-        String number = String.format("12345%4d", random.nextInt(10000));
+        String number = "12345%4d".formatted(random.nextInt(10000));
         Account account = new Account(number, "John Doe");
         account.addBeneficiary("Jane Doe");
         ResponseEntity<Void> responseEntity
@@ -94,7 +94,7 @@ public class AccountClientTests {
     public void createAccount_using_user_should_return_403() {
         String url = "/accounts";
         // use a unique number to avoid conflicts
-        String number = String.format("12345%4d", random.nextInt(10000));
+        String number = "12345%4d".formatted(random.nextInt(10000));
         Account account = new Account(number, "John Doe");
         account.addBeneficiary("Jane Doe");
         ResponseEntity<Void> responseEntity

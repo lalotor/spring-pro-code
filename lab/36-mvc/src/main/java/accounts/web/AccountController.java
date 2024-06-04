@@ -1,7 +1,6 @@
 package accounts.web;
 
 import accounts.AccountManager;
-import org.springframework.beans.factory.annotation.Autowired;
 import rewards.internal.account.Account;
 
 import java.util.List;
@@ -26,7 +25,6 @@ public class AccountController {
 	/**
 	 * Creates a new AccountController with a given account manager.
 	 */
-	@Autowired
 	public AccountController(AccountManager accountManager) {
 		this.accountManager = accountManager;
 	}

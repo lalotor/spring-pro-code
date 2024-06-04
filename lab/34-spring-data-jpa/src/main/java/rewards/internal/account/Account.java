@@ -5,7 +5,7 @@ import common.money.Percentage;
 import rewards.AccountContribution;
 import rewards.AccountContribution.Distribution;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;

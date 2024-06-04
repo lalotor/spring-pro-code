@@ -36,8 +36,8 @@ public class TransactionUtils {
 		this.transactionManager = transactionManager;
 
 		logger = LoggerFactory.getLogger(getClass());
-		if (logger instanceof ch.qos.logback.classic.Logger)
-			((ch.qos.logback.classic.Logger) logger).setLevel(Level.INFO);
+		if (logger instanceof ch.qos.logback.classic.Logger logger1)
+			logger1.setLevel(Level.INFO);
 
 	}
 

@@ -5,7 +5,7 @@ import common.money.Percentage;
 import rewards.Dining;
 import rewards.internal.account.Account;
 
-import javax.persistence.Transient;
+import jakarta.persistence.Transient;
 
 /**
  * Restaurants calculate how much benefit may be awarded to an account for

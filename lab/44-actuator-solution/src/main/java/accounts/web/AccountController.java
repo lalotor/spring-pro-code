@@ -7,7 +7,6 @@ import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +34,6 @@ public class AccountController {
 	/**
 	 * Creates a new AccountController with a given account manager.
 	 */
-	@Autowired
 	public AccountController(AccountManager accountManager, MeterRegistry registry) {
 		this.accountManager = accountManager;
 		this.counter = registry.counter("account.fetch", "type", "fromCode");
@@ -77,8 +75,8 @@ public class AccountController {
 	 * id.
 	 */
 	@GetMapping(value = "/accounts/{accountId}/beneficiaries/{beneficiaryName}")
-	public Beneficiary getBeneficiary(@PathVariable("accountId") int accountId,
-			@PathVariable("beneficiaryName") String beneficiaryName) {
+	public Beneficiary getBeneficiary(@PathVariable int accountId,
+			@PathVariable String beneficiaryName) {
 		return retrieveAccount(accountId).getBeneficiary(beneficiaryName);
 	}
 

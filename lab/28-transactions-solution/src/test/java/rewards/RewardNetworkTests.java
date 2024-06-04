@@ -5,12 +5,10 @@ import ch.qos.logback.classic.Logger;
 import common.money.MonetaryAmount;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import javax.sql.DataSource;
 
@@ -22,8 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * work together to reward for dining successfully. Uses Spring to bootstrap the
  * application for use in a test environment.
  */
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = { SystemTestConfig.class })
+@SpringJUnitConfig(classes = {SystemTestConfig.class})
 public class RewardNetworkTests {
 
 	/**

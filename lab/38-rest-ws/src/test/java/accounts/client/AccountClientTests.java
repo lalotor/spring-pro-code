@@ -57,7 +57,7 @@ public class AccountClientTests {
 	@Disabled
 	public void createAccount() {
 		// Use a unique number to avoid conflicts
-		String number = String.format("12345%4d", random.nextInt(10000));
+		String number = "12345%4d".formatted(random.nextInt(10000));
 		Account account = new Account(number, "John Doe");
 		account.addBeneficiary("Jane Doe");
 		

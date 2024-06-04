@@ -1,6 +1,5 @@
 package config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import rewards.RewardNetwork;
@@ -25,7 +24,6 @@ public class RewardsConfig {
 
 	DataSource dataSource;
 
-	@Autowired
 	public RewardsConfig(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
