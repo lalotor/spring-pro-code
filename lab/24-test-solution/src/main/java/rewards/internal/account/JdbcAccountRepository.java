@@ -37,7 +37,7 @@ public class JdbcAccountRepository implements AccountRepository {
 
 	/**
 	 * Sets the data source this repository will use to load accounts.
-	 * 
+	 *
 	 * @param dataSource
 	 *            the data source
 	 */
@@ -124,7 +124,7 @@ public class JdbcAccountRepository implements AccountRepository {
 	/**
 	 * Map the rows returned from the join of T_ACCOUNT and
 	 * T_ACCOUNT_BENEFICIARY to an fully-reconstituted Account aggregate.
-	 * 
+	 *
 	 * @param rs
 	 *            the set of rows returned from the query
 	 * @return the mapped Account aggregate
@@ -153,7 +153,7 @@ public class JdbcAccountRepository implements AccountRepository {
 	/**
 	 * Maps the beneficiary columns in a single row to an AllocatedBeneficiary
 	 * object.
-	 * 
+	 *
 	 * @param rs
 	 *            the result set with its cursor positioned at the current row
 	 * @return an allocated beneficiary

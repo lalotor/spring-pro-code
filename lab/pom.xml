@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.13</version>
+        <version>3.3.0</version>
     </parent>
     <properties>
         <!-- Versions of other dependencies not in spring IO. -->
@@ -155,25 +155,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-            </plugin>
-            <!-- OpenRewrite Recipies -->
-            <plugin>
-                <groupId>org.openrewrite.maven</groupId>
-                <artifactId>rewrite-maven-plugin</artifactId>
-                <version>5.32.0</version>
-                <configuration>
-
-                    <activeRecipes>
-                        <recipe>org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0</recipe>
-                    </activeRecipes>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.openrewrite.recipe</groupId>
-                        <artifactId>rewrite-spring</artifactId>
-                        <version>5.11.0</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
