@@ -26,9 +26,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <excludes>
-                        <exclude>**/RewardNetworkTests.java</exclude>
-                        <exclude>**/RewardNetworkSideEffectTests.java</exclude>
-                        <exclude>**/RewardNetworkPropagationTests.java</exclude>
                     </excludes>
                 </configuration>
             </plugin>
