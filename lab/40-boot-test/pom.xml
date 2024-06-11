@@ -65,7 +65,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <excludes>
-                        <exclude>**/AccountClientTests.java</exclude>
                     </excludes>
                 </configuration>
             </plugin>
