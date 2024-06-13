@@ -1,7 +1,6 @@
 package accounts.web;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.Status;
@@ -22,23 +21,15 @@ public class RestaurantHealthCheckTest {
 	@BeforeEach
 	public void setUp() {
 		restaurantRepository = mock(JpaRestaurantRepository.class);
-
-		// TODO-16b: Test custom health indicator
-		// - Create an instance of RestaurantHealthCheck class
-		// - Remove the two @Disabled annotations below
-		// - Run the test, make sure it passes.
-		restaurantHealthCheck = null;
+		restaurantHealthCheck = new RestaurantHealthCheck(restaurantRepository);
 	}
 
 	@Test
-	@Disabled
 	public void testHealthReturnsUpIfThereAreRestaurants() {
 		// Mock the Repository so getRestaurantCount returns 1
 		doReturn(1L).when(restaurantRepository).getRestaurantCount();
 
-		// TODO-15a: Invoke the health() method on RestaurantHealthCheck object
-		// (You will write health() method in the next step)
-		Health result = null;
+		Health result = restaurantHealthCheck.health();
 
 		// Health check should return UP
 		verify(restaurantRepository).getRestaurantCount();
@@ -46,14 +37,11 @@ public class RestaurantHealthCheckTest {
 	}
 
 	@Test
-	@Disabled
 	public void testHealthReturnsDownIfThereAreNoRestaurants() {
 		// Mock the Repository so getRestaurantCount returns 0
 		doReturn(0L).when(restaurantRepository).getRestaurantCount();
 
-		// TODO-15b: Invoke the health() method on RestaurantHealthCheck object
-		// (You will write health() method in the next step)
-		Health result = null;
+		Health result = restaurantHealthCheck.health();
 
 		// Health check should return DOWN
 		verify(restaurantRepository).getRestaurantCount();
